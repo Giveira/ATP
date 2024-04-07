@@ -1,0 +1,20 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+
+    //declarando as variaveis 
+    double cateto1, cateto2, hipotenusa;
+       Console.WriteLine("Digite o valor do primeiro cateto: "); //lendo o valor do primeiro cateto
+       cateto1 = Convert.ToDouble(Console.ReadLine());
+
+       Console.WriteLine("Digite o valor do segundo cateto: "); //lendo o valor do segundo cateto
+       cateto2 = Convert.ToDouble(Console.ReadLine());
+
+       //aplicando a formula para calcular a hipotenusa h = raiz quadrada de cateto1 ao quadrado + cateto2 ao quadrado
+       hipotenusa = Math.Sqrt(Math.Pow(cateto1, 2) + Math.Pow(cateto2, 2));
+
+       //saida de dados 
+       Console.WriteLine("\n Valor do primeiro cateto: {0} \n Valor do segundo cateto: {1}\n Valor da hipotenusa: {2:f2}\n", cateto1, cateto2, hipotenusa );
+  }
+}

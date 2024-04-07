@@ -1,0 +1,30 @@
+// Programa para calcular área, perimetro e diagonal de um retangulo 
+
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    
+    //Declarando as variaveis 
+    double a, b, area, perimetro, diagonal;
+    Console.WriteLine("Digite a altura do retangulo");
+    a = double.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite a base do retangulo");
+    b = double.Parse(Console.ReadLine());
+    
+    //Formula da area
+    area = a * b;
+    
+    //Formula do perimetro
+    perimetro = 2 * (a + b);
+    
+    //Formula da diagonal
+    diagonal = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+    
+    //Saída dos resultados
+    Console.WriteLine("A area do retangulo é: {0:f2} ", area);
+    Console.WriteLine("O perimetro do retangulo é: {0:f2} ", perimetro);
+    Console.WriteLine("a diagonal do retangulo é: {0:f2} ", diagonal);
+  }
+}

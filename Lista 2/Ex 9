@@ -1,0 +1,29 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variaveis
+    char sinais = '-';
+
+    Console.WriteLine("Digite um simbolo: ");
+    sinais = char.Parse(Console.ReadLine());
+    
+    switch(sinais){
+      case '-':
+      Console.WriteLine("SINAL DE MENOR");
+      break;
+
+      case '+':
+      Console.WriteLine("SINAL DE MAIOR");
+      break;
+
+      case '=':
+      Console.WriteLine("SINAL DE IGUAL");
+      break;
+
+      default: 
+      Console.WriteLine("OUTRO SINAL");
+      break;
+    }
+  }
+}

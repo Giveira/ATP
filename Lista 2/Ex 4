@@ -1,0 +1,31 @@
+using System;
+
+class Program {
+  public static void Main (string[] args){
+    //declarando as variaveis
+    int ano_atual = 2024, ano_nascimento, idade, maior_idade;
+    char fez_aniversario;
+
+    Console.WriteLine("Digite o ano de seu nascimento: ");
+    ano_nascimento = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Você fez aniversário esse ano? Digite S para sim e N para não. ");
+    fez_aniversario = char.Parse(Console.ReadLine());
+
+    idade = ano_atual - ano_nascimento;
+
+    //Fiz um if caso o usuario não tenha feito aniversário ele diminui 1 na variavel idade
+    if(fez_aniversario == 'N')
+      idade--;
+
+    //Imprimindo os resultados
+    Console.WriteLine( idade + " Anos.");
+
+    //Condição caso o usuario tenha mais de 18 anos ou não 
+    if(idade >= 18)
+      Console.WriteLine("Tem idade para habilitação.");
+    else
+      Console.WriteLine("Não tem idade para habilitação.");
+
+  }
+}

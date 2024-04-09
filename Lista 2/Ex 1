@@ -1,0 +1,20 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variáveis 
+    int a, b;
+
+    Console.WriteLine ("Digite um número: ");
+    a = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite outro número: ");
+    b = int.Parse(Console.ReadLine());
+
+    //Condição
+    if(a > b)
+      Console.WriteLine("O maior número é: " + a);
+    else
+      Console.WriteLine("O maior número é: " + b);
+  }
+}

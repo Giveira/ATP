@@ -1,0 +1,23 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variaveis
+    int velocidade_atual, velocidade_MaxPermitida;
+
+    Console.WriteLine("Digite a velocidade do motorista: ");
+    velocidade_atual = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite a velocidade permitida: ");
+    velocidade_MaxPermitida = int.Parse(Console.ReadLine());
+    //Condições 
+    if(velocidade_atual <= velocidade_MaxPermitida)
+        Console.WriteLine("Motorista respeitou a lei");
+    else if(velocidade_atual >= (velocidade_MaxPermitida + 1) && velocidade_atual <= (velocidade_MaxPermitida + 10))
+        Console.WriteLine("Multa de R$50 reais!"); //Caso esteja acima de 1 da velocidade atual e abaixo de 11 a multa vai ser de 50 reais
+    else if(velocidade_atual >= (velocidade_MaxPermitida + 11) && velocidade_atual <= (velocidade_MaxPermitida + 30))
+        Console.WriteLine("Multa de R$100 reais!"); //Caso esteja acima de 11km/h e abaixo de 30km/h a multa vai ser de R$100 reais
+    else
+        Console.WriteLine("Multa de R$200 reais!"); //Caso esteja acima de 30km vai ser aplicado a multa de R$200 reais
+  }
+}

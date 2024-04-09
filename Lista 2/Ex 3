@@ -1,0 +1,21 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variáveis 
+    int a, b, x;
+    Console.WriteLine ("Digite o valor de a: ");
+    a = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite o valor de b: ");
+    b = int.Parse(Console.ReadLine());
+    //Condição 
+    if(a < 0)
+      Console.WriteLine("O valor de A não pode ser negativo.");
+    else{
+      x = -b/a;
+    //Saída de dados 
+    Console.WriteLine("O valor é: {0:f2} ", x);
+    }
+  }
+}

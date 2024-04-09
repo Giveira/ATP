@@ -1,0 +1,44 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //declarando as variaveis
+    double salario_atual, aumento1, soma1, aumento2, soma2, valor_fixo, valor_fixo1 = 350, valor_fixo2 = 200;
+    char letras = 'A';
+
+    Console.WriteLine("Digite o valor do seu salário: ");
+    salario_atual = Double.Parse(Console.ReadLine());
+
+    //Variavel para armazenar o valor de 8%
+    soma1 = salario_atual * 0.08;
+    aumento1 = soma1 + salario_atual;
+
+    //Variavel para armazenar o valor de 11%
+    soma2 = salario_atual * 0.11;
+    aumento2 = salario_atual + soma2;
+
+    Console.WriteLine("Digite a opção desejada: \nA para aumento de 8%. \nB para aumento de 11%. \nC caso seu salário for até R$1000 ou maior que R$1000");
+    letras = char.Parse(Console.ReadLine());
+
+
+    //Entrando nas condições 
+    if(salario_atual <= 1000)
+        valor_fixo = salario_atual + valor_fixo1; //Declarei o valor fixo de até 1000 em 350
+    else 
+        valor_fixo = salario_atual + valor_fixo2; //Declarei o valor fixo de acima de 1000 em 200 
+    
+    switch(letras){
+        case 'A':
+        Console.WriteLine("O sálario com o aumento de 8% ficou em: R$" + aumento1);
+        break;
+
+        case 'B':
+        Console.WriteLine("O salário atual com o aumento de 11% ficou em: R$" + aumento2);
+        break;
+
+        case 'C':
+        Console.WriteLine("O salário atual com o valor fixo ficou em: R$" + valor_fixo);
+        break;
+    }
+  }
+}

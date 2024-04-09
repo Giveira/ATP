@@ -1,0 +1,39 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //declarando as variaveis
+    double diaria_promocional, valor_promo , valor_total_d = 0, valor_total = 0, diaria, ocupacao_metade, ocupacao_oitenta, soma1, soma2, capacidade_total = 75, diferenca;
+
+    Console.WriteLine("Digite o valor da diária: ");
+    diaria = double.Parse(Console.ReadLine());
+
+    //Calculando os valores 
+
+    valor_promo = diaria * 0.25; //Variavel para armazenar o valor com 25% de desconto
+    diaria_promocional = diaria - valor_promo; 
+
+    Console.WriteLine("O valor da diária promocional foi de: R$" + diaria_promocional);
+
+    soma1 = capacidade_total * 0.80; //Variavel para armazenar o valor da capacidade com 80%
+
+    ocupacao_oitenta = soma1;
+
+    soma2 = capacidade_total * 0.50; //Variavel para armazenar o valor da capacidade com 50%
+
+    ocupacao_metade = soma2;
+
+    valor_total = diaria * ocupacao_metade; //Variavel para armazenar o valor total com a capacidade em 50% e a diaria com preço normal.
+    Console.WriteLine("O valor arrecadado com 50% foi de: R$" + valor_total);
+
+    valor_total_d = diaria_promocional * ocupacao_oitenta; //Variavel para armazenar o valor total com a capacidade em 80% e a diaria com preço promocional.
+    Console.WriteLine("O valor arrecado com 80% foi de: R$" + valor_total_d);
+
+
+    diferenca = valor_total_d - valor_total ; //Diferença entre os valores 
+
+    //Imprimindo o valor da diferença 
+    Console.WriteLine("A diferença entre os valores foram de:   R$" + diferenca);
+
+  }
+}

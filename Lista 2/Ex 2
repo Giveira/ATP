@@ -1,0 +1,23 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variáveis
+    int a, b, soma; 
+    Console.WriteLine ("Digite um valor");
+    a = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Digite outro número: ");
+    b = int.Parse(Console.ReadLine());
+
+    soma = a + b;
+    
+    //Entrando nas condições 
+    if(soma >=10)
+      soma = soma + 5;
+    else 
+      soma = soma + 7;
+    //Imprimindo o resultado
+    Console.WriteLine("O resultado é: " + soma);
+  }
+}

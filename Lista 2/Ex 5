@@ -1,0 +1,22 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variaveis
+    int nota;
+    Console.WriteLine("Digite uma nota de 0 a 10.");
+    nota = int.Parse(Console.ReadLine());
+
+    //Entrando nas condições da questão
+    if(nota > 10 || nota < 0) //if caso digite uma nota acima de 10 e uma nota negativa
+      Console.WriteLine("Nota inválida!");
+    else if(nota >= 8 && nota <= 10)
+      Console.WriteLine("Ótimo");
+    else if(nota < 8 && nota >=7)
+      Console.WriteLine("Bom");
+    else if(nota < 7 && nota >= 5)
+      Console.WriteLine("Regular");
+    else
+      Console.WriteLine("Insatisfatório");
+    }
+  }

@@ -1,6 +1,6 @@
 using System;
 
-class Program {
+class Exercicios {
   public static void Main (string[] args) {
 
     //declarando as variaveis

@@ -1,9 +1,10 @@
+
 using System;
 
 class Exercicios {
   public static void Main (string[] args) {
 
-    //declarando as variaveis
+    //Declarando as variaveis
 
     double salario_minimo, quant_klw, valor_klw, valor_total, valor_desconto, desconto, set_Salario;
     Console.WriteLine ("Digite o valor do salario minimio: ");

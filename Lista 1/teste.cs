@@ -1,7 +1,7 @@
 
 using System;
 
-public class Exercicios{
+public class Program{
     public static void Main(){
     //declarando as variaveis
     double salario_minimo, quant_klw, valor_klw, valor_total, valor_desconto, desconto, set_Salario;

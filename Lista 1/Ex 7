@@ -1,0 +1,18 @@
+using System;
+class Program {
+    static void Main() {
+        //Declarando as variáveis
+        int anos, meses, dias, dSemAcidentes;
+        // leitura da quantidade de dias sem acidentes
+        Console.WriteLine("Digite a quantidade de dias sem acidentes: ");
+        dSemAcidentes = Convert.ToInt32(Console.ReadLine());
+
+        // cálculo dos anos, meses e dias
+        anos = dSemAcidentes / 365;
+        meses = (dSemAcidentes % 365) / 30;
+        dias = (dSemAcidentes % 365) % 30;
+
+        // Exibição do resultado
+        Console.WriteLine("Saída: {0} ano(s), {1} mês(es) e {2} dia(s)", anos, meses, dias);
+    }
+}

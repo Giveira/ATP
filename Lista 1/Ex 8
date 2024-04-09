@@ -1,0 +1,42 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    
+    //Declarando as variaveis  
+    
+    int Conta_Corrente, Inverso_CC, Digito_1, Digito_2, Digito_3, Soma_Contas, Digito_Verificador;
+    
+    Console.WriteLine ("Digite o primeiro digito da conta corrente: ");
+    Digito_1= int.Parse(Console.ReadLine());
+
+    Console.WriteLine ("Digite o segundo digito da conta corrente: ");
+    Digito_2= int.Parse(Console.ReadLine());
+
+    Console.WriteLine ("Digite o terceiro digito da conta corrente: ");
+    Digito_3= int.Parse(Console.ReadLine());
+
+    //Calculo para saber a conta corrente
+
+    Conta_Corrente = Digito_1 * 100 + Digito_2 * 10 + Digito_3;
+
+    //Calculo para saber o inverso da conta corrente
+    
+    Inverso_CC = Digito_3 * 100 + Digito_2 * 10 + Digito_1;
+
+    //Calculo para saber a soma das duas contas
+
+    Soma_Contas = Conta_Corrente + Inverso_CC;
+
+    //Calculo para saber o digito verificador
+
+    Digito_Verificador = Soma_Contas % 10;
+
+    //Saída de dados
+    
+    Console.WriteLine("O numero da conta corrente é: {0}", Conta_Corrente);
+    Console.WriteLine("O inverso da conta corrente é: {0}", Inverso_CC);
+    Console.WriteLine("A soma das contas é: {0}", Soma_Contas);
+    Console.WriteLine("O digito verificador é: {0}", Digito_Verificador);
+  }
+}

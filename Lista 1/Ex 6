@@ -1,0 +1,27 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //Declarando as variáveis 
+    int a, b;
+
+    Console.WriteLine("Digite o valor de A: ");
+    a = Convert.ToInt32(Console.ReadLine());
+    
+    Console.WriteLine("Digite o valor de B: ");
+    b = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("O valor de A é: {0}", a);
+    Console.WriteLine("O valor de B é: {0}", b);
+
+    //Criando nova variavel para inverter os valores
+
+    int novo_valor = a;
+
+    a = b;
+    b = novo_valor;
+
+    //Imprimindo os resultados
+    Console.WriteLine("O novo valor de A é: {0} e o novo valor de B é {1}", a, b);
+  }
+}

@@ -1,0 +1,24 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    //p aplicação mensal, i taxa e n numero de meses
+    int n; //declarei os meses como inteiro 
+    double p, i, rendimento; //rendimento e taxa como double
+
+    Console.WriteLine("Digite a quantidade de meses: ");
+    n = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Digite a aplicação mensal: ");
+    p = Convert.ToDouble(Console.ReadLine());
+
+    Console.WriteLine("Digite a taxa: ");
+    i = Convert.ToDouble(Console.ReadLine());
+
+    //usando a formula da questão 
+    rendimento = p * (Math.Pow(1+i,n) - 1) / i;
+
+    //Saída de dados
+    Console.WriteLine("O rendimento é: {0:f2}", rendimento);
+  }
+}

@@ -1,0 +1,46 @@
+using System;
+
+class Program {
+    public static void Main (string[] args) {
+        
+        // Declarando as variáveis
+        int numero, positivo = 0, zero = 0, negativo = 0, total = 0;
+        double percentPositivo, percentNegativo, percentZero;
+
+        // Entrando na estrutura de repetição
+        do {
+            Console.WriteLine("Digite um número: ");
+            numero = int.Parse(Console.ReadLine());
+
+            // Verificando se o número é positivo, negativo ou zero
+            if (numero == 0)
+                zero++;
+            else if (numero < 0)
+                negativo++;
+            else
+                positivo++;
+
+            total++; // Incrementando o total de números
+        } while(numero != 999); // Coloquei esse valor para caso o usuário deseje sair 
+
+        // Calculando os percentuais
+        if (total > 0) {
+            percentPositivo = (double)positivo / total * 100;
+            percentNegativo = (double)negativo / total * 100;
+            percentZero = (double)zero / total * 100;
+        } else {
+            percentPositivo = 0;
+            percentNegativo = 0;
+            percentZero = 0;
+        }
+
+        // Imprimindo os resultados
+        Console.WriteLine("Números Positivos: " +  positivo);
+        Console.WriteLine("Percentual Positivo: {0:f2}%", percentPositivo);
+        Console.WriteLine("Números Negativos: " + negativo);
+        Console.WriteLine("Percentual negativo: {0:f2}%", percentNegativo);
+        Console.WriteLine("Zeros: " + zero);
+        Console.WriteLine("Percentual com zeros: {0:f2}%", percentZero); 
+        
+    }
+}

@@ -1,0 +1,31 @@
+using System;
+
+class Program {
+    public static void Main (string[] args) {
+        double numeros;
+        int Divisao_1 = 0;
+        int Divisao_2 = 0;
+        
+        for(int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Digite um número: ");
+            numeros = double.Parse(Console.ReadLine());
+            
+            if(numeros % 3 == 0 && numeros % 9 == 0)
+            {
+                Divisao_1++;
+            }
+            else if(numeros % 2 == 0 && numeros % 5 == 0)
+            {
+                Divisao_2++;
+            }
+            else
+            {
+                Console.WriteLine("Número não divisível pelos valores");
+            }
+        }
+
+        Console.WriteLine("Quantidade de números divisíveis por 3 e 9: " + Divisao_1);
+        Console.WriteLine("Quantidade de números divisíveis por 2 e 5: " + Divisao_2);
+    }
+}

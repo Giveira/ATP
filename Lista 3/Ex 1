@@ -1,0 +1,35 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    
+    //Declarando as variáveis
+
+    int numero, positivo = 0, zero = 0, negativo = 0;
+
+    //Entrando na estrutura de repetição
+    
+    do
+    {
+        Console.WriteLine("Digite um número: ");
+        numero = int.Parse(Console.ReadLine());
+
+    //Fiz um if para cada uma das exigências do exercício 
+      
+      if (numero == 0)
+      {
+          zero++;
+      }
+      else if (numero < 0)
+          negativo++;
+      else
+          positivo++;
+    }while(numero != 999); //Coloquei esse valor para caso o usuario deseje sair 
+
+    //Imprimindo os resultados
+
+    Console.WriteLine("Números Positivos: " +  positivo);
+    Console.WriteLine("Números Negativos: " + negativo);
+    Console.WriteLine("Zeros: " + zero); 
+  }
+}

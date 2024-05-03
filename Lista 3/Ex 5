@@ -1,0 +1,32 @@
+using System;
+class HelloWorld {
+  static void Main() {
+    
+    //Declarando a variavel 
+    int num;
+    
+    //Fazendo uma condição caso o usuario digite um número negativo
+    do{
+    Console.Write("Digite um número inteiro e positivo: ");
+    num = int.Parse(Console.ReadLine());
+    if(num < 0)
+        Console.WriteLine("Número invalido, digite um número positivo e inteiro.");
+    }while(num < 0);
+    
+    double e = 1; //Inicializa a variável E com 1, pois o primeiro termo da série é 1
+    
+    // iniciando laço de repetição
+    for(int i = 1; i <= num; i++)
+    {
+      int fatorial = 1; //Calcula o fatorial de i
+      for(int j = 1; j <= i; j++)
+      {
+        fatorial *= j;
+      }
+      e += 1.0/fatorial; //Adiciona o termo 1/i! à variável E
+    }
+
+    Console.WriteLine("O valor de E é: " + e);
+    
+  }
+}

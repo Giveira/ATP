@@ -1,0 +1,29 @@
+using System;
+
+class Program 
+{
+  public static void Main (string[] args)
+  {
+    //Declarando as variaveis 
+    int n;
+    double fat = 1;
+
+    //Entrada de dados
+    Console.WriteLine("Digite um número positivo: ");
+    n = int.Parse(Console.ReadLine());
+    
+    //Entrando na condição
+    if(n < 0)
+        Console.WriteLine("Número invalido, digite um número positivo!");
+    else
+        {
+    //Entrando na estrutura de repetição
+        for(int i = 1; i <= n; i++)
+          {
+            fat *= i;
+          }
+        //Saída de dados 
+        Console.WriteLine("O fatorial de " + n + " é: " + fat);
+        }
+  }
+}

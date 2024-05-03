@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Declarando as variaveis
+        double salario, mediaSalario = 0, maiorSalario = 0;
+        int numFilhos, totalFilhos = 0, totalPessoas = 0, numPessoasAteCem = 0;
+
+        Console.WriteLine("Informe os dados dos habitantes (salário e número de filhos):");
+        //inicio laço de repetição
+        do
+        {
+            Console.Write("Salário: ");
+            salario = double.Parse(Console.ReadLine());
+
+            if (salario >= 0)
+            {
+                Console.Write("Número de filhos: ");
+                numFilhos = int.Parse(Console.ReadLine());
+
+                mediaSalario += salario;
+                totalFilhos += numFilhos;
+                totalPessoas++;
+
+                if (salario > maiorSalario)
+                {
+                    maiorSalario = salario;
+                }
+
+                if (salario <= 100)
+                {
+                    numPessoasAteCem++;
+                }
+            }
+        } while (salario >= 0); //Fim do laço
+
+        //Saída de dados
+        Console.WriteLine("\nResultados da pesquisa:");
+        Console.WriteLine("Média do salário da população: R${0:0.00}", mediaSalario / totalPessoas);
+        Console.WriteLine("Média do número de filhos: {0:0.0}", (double)totalFilhos / totalPessoas);
+        Console.WriteLine("Maior salário: R${0:0.00}", maiorSalario);
+        Console.WriteLine("Percentual de pessoas com salário até R$100,00: {0:0.00}%", (double)numPessoasAteCem / totalPessoas * 100);
+
+        Console.ReadKey();
+    }
+}

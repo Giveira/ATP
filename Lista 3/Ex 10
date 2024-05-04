@@ -1,0 +1,54 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args){
+        
+        //Iniciando as variaveis
+        double precoCompra, precoVenda, lucro, totalCompra = 0, totalVenda = 0, lucroTotal = 0;;
+        int qtdLucroMenor10 = 0, qtdLucroEntre10e20 = 0, qtdLucroMaior20 = 0;
+        
+        //Iniciando laço de repetição
+        do
+        {
+            Console.Write("Digite o preço de compra: ");
+            precoCompra = double.Parse(Console.ReadLine());
+            
+            //Entrando nas condições
+            if (precoCompra != 0)
+            {
+                Console.Write("Digite o preço de venda: ");
+                precoVenda = double.Parse(Console.ReadLine());
+
+                lucro = (precoVenda - precoCompra) / precoCompra * 100;
+
+                if (lucro < 10)
+                {
+                    qtdLucroMenor10++;
+                }
+                else if (lucro <= 20)
+                {
+                    qtdLucroEntre10e20++;
+                }
+                else
+                {
+                    qtdLucroMaior20++;
+                }
+
+                totalCompra += precoCompra;
+                totalVenda += precoVenda;
+                lucroTotal += precoVenda - precoCompra;
+            }
+
+        }while(precoCompra != 0);
+        
+        //Saída de dados
+        Console.WriteLine("Quantidade de mercadorias com lucro menor que 10%: {0}", qtdLucroMenor10);
+        Console.WriteLine("Quantidade de mercadorias com lucro entre 10% e 20%: {0}", qtdLucroEntre10e20);
+        Console.WriteLine("Quantidade de mercadorias com lucro maior que 20%: {0}", qtdLucroMaior20);
+        Console.WriteLine("Valor total de compra: {0}", totalCompra);
+        Console.WriteLine("Valor total de venda: {0}", totalVenda);
+        Console.WriteLine("Lucro total: {0}", lucroTotal);
+    }
+}
+

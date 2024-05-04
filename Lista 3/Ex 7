@@ -1,0 +1,24 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Declarando variáveis
+        int n;
+        double soma = 0;
+
+        Console.Write("Digite um valor inteiro e positivo para n: ");
+        n = int.Parse(Console.ReadLine());
+        
+        //Iniciando laço de repetição
+        for (int i = 1; i <= n; i++)
+        {
+            double termo = 1.0 / i;
+            Console.WriteLine("Termo {0}: {1}", i, termo);
+            soma += termo;
+        }
+
+        Console.WriteLine("Valor final de S: {0}", soma);
+    }
+}

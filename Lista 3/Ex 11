@@ -1,0 +1,51 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        
+        //Iniciando as variáveis
+        int voto, candidato1 = 0, candidato2 = 0, candidato3 = 0, candidato4 = 0, votosNulos = 0, votosEmBranco = 0;
+        
+        //Iniciando o laço de repetição
+        do {
+            Console.WriteLine("Digite o código do candidato (1, 2, 3, 4), 5 para voto nulo, 6 para voto em branco ou 0 para encerrar:");
+            voto = int.Parse(Console.ReadLine());
+            
+            //Condição
+            switch (voto) {
+                case 1:
+                    candidato1++;
+                    break;
+                case 2:
+                    candidato2++;
+                    break;
+                case 3:
+                    candidato3++;
+                    break;
+                case 4:
+                    candidato4++;
+                    break;
+                case 5:
+                    votosNulos++;
+                    break;
+                case 6:
+                    votosEmBranco++;
+                    break;
+                case 0:
+                    break;
+                default:
+                    Console.WriteLine("Código inválido!");
+                    break;
+            }
+
+        } while (voto != 0);
+        
+        //Saída de dados
+        Console.WriteLine("Total de votos para o candidato 1: " + candidato1);
+        Console.WriteLine("Total de votos para o candidato 2: " + candidato2);
+        Console.WriteLine("Total de votos para o candidato 3: " + candidato3);
+        Console.WriteLine("Total de votos para o candidato 4: " + candidato4);
+        Console.WriteLine("Total de votos nulos: " + votosNulos);
+        Console.WriteLine("Total de votos em branco: " + votosEmBranco);
+    }
+}

@@ -1,0 +1,21 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+      
+    //Declarando as variáveis
+    int L, c, a=0, b=1;
+    
+    Console.WriteLine ("Digite um número inteiro positivo L");
+    L = int.Parse(Console.ReadLine());
+    
+    //Início laço de repetição
+    while(a < L)
+    {
+      Console.Write(a + "");
+      c = a + b;
+      a = b;
+      b = c;
+    }
+  }
+}

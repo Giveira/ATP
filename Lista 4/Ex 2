@@ -11,9 +11,8 @@ class Program
     static void ColetarDados()
     {
         // Inicializa as variáveis
-        double salario = 0;
-        int filhos, cont = 0, cont_n = 0;
-        double somaSalarios = 0;
+        double salario = 0, somaSalarios = 0;;
+        int filhos, cont = 0;
 
         do
         {
@@ -30,22 +29,15 @@ class Program
                 // Adiciona o salário à somaSalarios
                 somaSalarios += salario; 
 
-                // Se o número de filhos for maior que zero, incrementa cont, caso contrário incrementa cont_n
-                if(filhos > 0)
-                {
-                    cont++;
-                }
-                else
-                {
-                    cont_n++;
-                }
+                // Incrementa a contagem total de pessoas
+                cont++;
             }
         } while(salario >= 0); // Continua até que um salário negativo seja inserido
 
-        // Se cont + cont_n for maior que zero, calcula a média dos salários e a exibe
-        if (cont + cont_n > 0)
+        // Se cont for maior que zero, calcula a média dos salários e a exibe
+        if (cont > 0)
         {
-            double mediaSalarios = somaSalarios / (cont + cont_n);
+            double mediaSalarios = somaSalarios / cont;
             Console.WriteLine("Média de salário da população: {0:f2}", mediaSalarios);
         }
         else

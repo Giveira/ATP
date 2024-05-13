@@ -1,0 +1,57 @@
+using System;
+
+class Program 
+{
+    static void Main(string[] args) 
+    {
+        // Chama o procedimento ColetarDados
+        ColetarDados();
+    }
+
+    static void ColetarDados()
+    {
+        // Inicializa as variáveis
+        double salario = 0;
+        int filhos, cont = 0, cont_n = 0;
+        double somaSalarios = 0;
+
+        do
+        {
+            // Solicita ao usuário que insira um salário
+            Console.WriteLine("Digite o seu salário (digite um valor negativo para sair): ");
+            salario = double.Parse(Console.ReadLine());
+
+            // Se o salário for maior ou igual a zero, solicita ao usuário que insira o número de filhos
+            if(salario >= 0)
+            {
+                Console.WriteLine("Número de filhos: ");
+                filhos = int.Parse(Console.ReadLine());
+
+                // Adiciona o salário à somaSalarios
+                somaSalarios += salario; 
+
+                // Se o número de filhos for maior que zero, incrementa cont, caso contrário incrementa cont_n
+                if(filhos > 0)
+                {
+                    cont++;
+                }
+                else
+                {
+                    cont_n++;
+                }
+            }
+        } while(salario >= 0); // Continua até que um salário negativo seja inserido
+
+        // Se cont + cont_n for maior que zero, calcula a média dos salários e a exibe
+        if (cont + cont_n > 0)
+        {
+            double mediaSalarios = somaSalarios / (cont + cont_n);
+            Console.WriteLine("Média de salário da população: {0:f2}", mediaSalarios);
+        }
+        else
+        {
+            // Caso contrário, exibe uma mensagem informando que nenhum dado foi inserido
+            Console.WriteLine("Nenhum dado foi inserido.");
+        }
+    }
+}

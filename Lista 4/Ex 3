@@ -1,0 +1,78 @@
+using System;
+
+class HelloWorld {
+  static void Main() {
+    //Solicita ao usuário que insira o número de conjuntos
+    Console.WriteLine("Digite o número de conjuntos: ");
+    int N = int.Parse(Console.ReadLine());
+
+    //Loop para ler cada conjunto
+    for(int i = 0; i < N; i++)
+    {
+        //Solicita ao usuário que insira 3 valores para o conjunto atual
+        Console.WriteLine("Digite 3 valores inteiros para o conjunto " + (i+1) + ": ");
+        int a = int.Parse(Console.ReadLine());
+        int b = int.Parse(Console.ReadLine());
+        int c = int.Parse(Console.ReadLine());
+
+        //Chama o procedimento Valores
+        Valores(a, b, c);
+    }
+  }
+  
+  //Iniciando o procedimento
+  public static void Valores(int a, int b, int c)
+  {
+      //Exibe uma mensagem indicando que os valores serão exibidos em ordem crescente
+      Console.WriteLine("Os valores em ordem crescente são: ");
+
+      //Verifica se 'a' é o menor valor
+      if(a < b && a < c)
+      {
+        Console.WriteLine(a);
+        //Verifica se b é menor que c
+        if(b < c)
+        {
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+        }
+        else
+        {
+            Console.WriteLine(c);
+            Console.WriteLine(b);
+        }
+      }
+      //Verifica se b é o menor valor
+      else if(b < a && b < c)
+      {
+          Console.WriteLine(b);
+          //Verifica se a é menor que c
+          if(a < c)
+          {
+            Console.WriteLine(a);
+            Console.WriteLine(c);
+          }
+          else
+          {
+            Console.WriteLine(c);
+            Console.WriteLine(a);
+          }
+      }
+      //Se a e b não são os menores valores, então c deve ser o menor valor
+      else
+      {
+          Console.WriteLine(c);
+          //Verifica se a é menor que b
+          if(a < b)
+          {
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+          }
+          else
+          {
+            Console.WriteLine(b);
+            Console.WriteLine(a);
+          }
+      }
+  }
+}

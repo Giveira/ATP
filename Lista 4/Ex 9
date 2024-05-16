@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {   
+        //Pedindo o usuario para digitar o número de alunos
+        Console.WriteLine("Digite o número de alunos: ");
+        int numAlunos = int.Parse(Console.ReadLine());
+
+        double soma = 0;
+        int contador = 0;
+
+        //Iniciando o loop
+        for (int i = 0; i < numAlunos; i++)
+        {
+            Console.WriteLine("Digite a nota do aluno " + (i + 1) + ": ");
+            double nota = double.Parse(Console.ReadLine());
+
+            //Condição
+            if (nota >= 6)
+            {
+                soma += nota;
+                contador++;
+            }
+        }
+
+        double media;
+
+        if (contador > 0)
+        {
+            media = soma / contador;
+        }
+        else
+        {
+            media = 0;
+        }
+        Console.WriteLine("A média das notas dos alunos aprovados é: " + media); //Saída de dados
+    }
+}

@@ -1,0 +1,41 @@
+using System;
+
+class HelloWorld {
+  static void Main() {
+
+    //Solicita o usuario a digitar os cm's
+    Console.WriteLine("Digite os comprimentos dos lados do triângulo (X, Y e Z): ");
+    double X = double.Parse(Console.ReadLine());
+    double Y = double.Parse(Console.ReadLine());
+    double Z = double.Parse(Console.ReadLine());
+
+    VerificaTriangulo(X, Y, Z);
+  }
+  
+  public static void VerificaTriangulo(double X, double Y, double Z)
+  {
+      //Verifica se X, Y e Z podem formar um triângulo
+      if (X < Y + Z && Y < X + Z && Z < X + Y)
+      {
+          Console.WriteLine("Os valores podem formar um triângulo.");
+
+          //Verifica o tipo de triângulo
+          if (X == Y && Y == Z)
+          {
+              Console.WriteLine("O triângulo é Equilátero.");
+          }
+          else if (X == Y || Y == Z || Z == X)
+          {
+              Console.WriteLine("O triângulo é Isósceles.");
+          }
+          else
+          {
+              Console.WriteLine("O triângulo é Escaleno.");
+          }
+      }
+      else
+      {
+          Console.WriteLine("Os valores não podem formar um triângulo.");
+      }
+  }
+}

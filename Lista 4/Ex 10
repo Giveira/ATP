@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Digite a idade do nadador: ");
+        int idade = int.Parse(Console.ReadLine());
+
+        //Chamndo a função
+        char categoria = CategoriaNadador(idade);
+        Console.WriteLine("A categoria do nadador é: " + categoria);
+    }
+
+    //Criando a função
+    static char CategoriaNadador(int idade)
+    {   
+        //Condição
+        if (idade >= 5 && idade <= 7)
+        {
+            return 'F';
+        }
+        else if (idade >= 8 && idade <= 10)
+        {
+            return 'E';
+        }
+        else if (idade >= 11 && idade <= 13)
+        {
+            return 'D';
+        }
+        else if (idade >= 14 && idade <= 15)
+        {
+            return 'C';
+        }
+        else if (idade >= 16 && idade <= 17)
+        {
+            return 'B';
+        }
+        else if (idade >= 18)
+        {
+            return 'A';
+        }
+        else
+        {
+            return '?'; // Retornar um caractere para indicar uma idade inválida
+        }
+    }
+}

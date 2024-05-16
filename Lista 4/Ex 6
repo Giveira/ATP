@@ -1,0 +1,34 @@
+using System; 
+
+class Program 
+{
+    static void Main() 
+    {
+        //Solicita ao usuario que insira o número de elementos
+        Console.Write("Digite o número de elementos: ");
+        int N = int.Parse(Console.ReadLine()); 
+
+        //Inicio do loop
+        for (int i = 0; i < N; i++) 
+        {
+            Console.Write("Digite um número: "); // Solicita ao usuário que insira um número
+            int num = int.Parse(Console.ReadLine()); 
+
+            //Chamando a função IsPositive para verificar se o número é positivo
+            if (IsPositive(num)) 
+            {
+                Console.WriteLine("O número " + num + " é positivo."); 
+            }
+            else
+            {
+                Console.WriteLine("O número " + num + " é negativo."); // 
+            }
+        }
+    }
+
+    //Criando a função
+    static bool IsPositive(int num) 
+    {
+        return num >= 0; //Retorna verdadeiro se o número for maior ou igual a zero, caso contrário retorna falso
+    }
+}

@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Solicita ao usuário que insira o valor de N
+        Console.WriteLine("Digite o valor de N: ");
+        int N = int.Parse(Console.ReadLine());
+
+        //Chamando a função CalcularS 
+        double resultado = CalcularS(N);
+
+        // Imprime o resultado junto com uma mensagem indicando o valor de N
+        Console.WriteLine("O valor de S para N = " + N + " é: " + resultado);
+    }
+
+    //Criando a função
+    static double CalcularS(int N)
+    {
+        double S = 0;
+        //Iniciando o loop
+        for (int n = 1; n <= N; n++)
+        {
+            //Calcula o numerador da fração de acordo com a fórmula fornecida
+            double numerador = n * n + 1;
+            //Calcula o denominador da fração de acordo com a fórmula fornecida
+            double denominador = n + 3;
+            //Adiciona o valor da fração ao total S
+            S += numerador / denominador;
+        }
+        //Retorna o valor total S calculado
+        return S;
+    }
+}

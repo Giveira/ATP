@@ -1,0 +1,28 @@
+using System;
+
+class HelloWorld {
+  static void Main() {
+
+    //Solicitando que o usuario digite 2 números inteiros
+    Console.WriteLine("Digite dois números inteiros: ");
+    int num1 = int.Parse(Console.ReadLine());
+    int num2 = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("O MDC é: " + MDC(num1, num2));
+  }
+  
+  //Iniciando a função
+  public static int MDC(int a, int b)
+  {
+      //Se b for 0, a é o MDC
+      if (b == 0)
+      {
+          return a;
+      }
+      //Caso contrário, calcula o MDC de b e o resto da divisão de a por b
+      else
+      {
+          return MDC(b, a % b);
+      }
+  }
+}

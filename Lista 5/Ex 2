@@ -1,0 +1,63 @@
+using System;
+/*  Faça um procedimento que preencha um vetor com as notas de uma turma de 10 alunos. Faça um outro procedimento que receba um vetor preenchido com as notas, calcule a média da 
+turma e conte quantos alunos obtiveram nota acima da média. Esse procedimento deve exibir a média e o resultado da contagem. Faça um programa que declare as devidas variáveis e acione os procedimentos*/
+class Program 
+{
+    public static void Main(string[] args) 
+    {
+        //Declarando as varivaveis 
+        int [] notas = new int[10];
+        double media;
+        int quantidade; //Quantidade de alunos que ficaram acima da media
+
+        //Procedimento para receber as notas dos alunos
+        SomarNotas(notas);
+        //Procedimento para calcular a média e mostrar os alunos acima da média
+        CalculaMedia(notas, out media, out quantidade); //Comando out para passar o parâmetro por referência
+
+        //Saída de dados
+        Console.WriteLine("A media foi: " + media);
+        Console.WriteLine("A quantidade de alunos que ficaram acima da media foi: " + quantidade);
+
+    }
+
+    //Criando o procedimento para receber as notas
+    public static void SomarNotas(int[] notas) 
+    {
+        //Laço de repetição para armazenar as notas no vetor
+        for(int i = 0; i < notas.Length; i++) 
+        {
+            Console.WriteLine("Digite a nota: ");
+            notas[i] = int.Parse(Console.ReadLine());
+        }
+    }//Fim procedimento
+
+    //Criando procedimento para somar a media das notas e também mostrar os alunos que ficaram acima da média
+    public static void CalculaMedia(int[] notas, out double media, out int quantidade) 
+    {
+        int somaNotas = 0;
+        int totalAlunos = notas.Length;
+
+        //Iniciando o laço de repetição para a soma das notas
+        for(int i = 0; i < notas.Length;i++) 
+        {
+            somaNotas += notas[i];
+        }
+
+        //Média recebendo o resultado da divisão
+        media = (double)somaNotas / totalAlunos;
+
+        //Atribuindo o valor da variável quantidade
+        quantidade = 0;
+
+        //Iniciando o laço de repetição
+        for(int i =0; i < totalAlunos; i++)
+        {
+            //Se caso a nota do aluno for maior que a media ele vai somar na variável quantidade
+            if (notas[i] > media)
+            { 
+                quantidade++;
+            }
+        }
+    }//Fim procedimento
+}

@@ -1,0 +1,42 @@
+using System;
+
+class Program 
+{
+    public static void Main(string[] args) 
+    {
+        //Pedindo o usuário para digitar a quantidade de vezes desejada. 
+        Console.WriteLine("Digite a quantidade de vezes que o dado será jogado: ");
+        int quantidade = int.Parse(Console.ReadLine());
+
+        //Chamando o procedimento
+        JogarDados(quantidade); 
+        
+    }
+
+    //Criando a função para sortear os números de 1 a 6
+    public static int SortearNum() 
+    {
+        Random random = new Random();
+        return random.Next(1,7); //Criei o random com 1 e 7 pois garante a inclusão de 1 e 6.
+    }
+
+    //Criando o procedimento para armazenar a quantiade de vezes
+    public static void JogarDados(int quantidade) 
+    {
+        int[] contagem = new int[6]; //Vetor para controlar a quantidade
+
+        //Laço de repetição para fazer a quantidade
+        for (int i = 0; i < quantidade; i++) 
+        {
+            int resultado = SortearNum(); //'Resultado' armazena a função que sortea os números de 1 a 6.
+            contagem[resultado - 1]++; //Incrementa a contagem no índice correspondente 
+        }
+
+        //Laço de repetiçaõ para imprimir os números e a quantidade de vez(es).
+        for (int i = 0; i < contagem.Length; i++) 
+        {
+            //Exibe a contagem de 1 a 6. 
+            Console.WriteLine("Número " + (i + 1) + ": " + contagem[i] + " Vez(es)");
+        }
+    }
+}

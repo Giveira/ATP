@@ -1,0 +1,77 @@
+using System;
+class Program
+{
+    public static void Main(string[] args) 
+    {
+        //Declarando as variaveis X e Y com o tamanho de 10
+        int[] vetorX = new int[10];
+        int[] vetorY = new int[10];
+
+        //Chamando o procedimento que recebe os vetores preenchidos de X e Y
+        PreencherValores(vetorX, vetorY);
+
+        //Criando a variavel vetorIntercalado para receber a função que retorna o valor intercalado de X e Y
+        int[] vetorIntercalado = ValorIntercalado(vetorX, vetorY);
+
+        //Exibindo os valores de X, Y e Intercalar 
+        ExibirValor(vetorX, 1);
+        ExibirValor(vetorY, 2);
+        ExibirValor(vetorIntercalado, 3);
+
+        Console.ReadLine();
+
+    } //Fim main
+
+    //Procedimento para receber os valores preenchidos de X e Y
+    public static void PreencherValores(int[] x, int[] y) 
+    {
+        //Laço de repetição para receber os valores de X e Y
+        for (int i = 0; i < x.Length; i++) 
+        {
+            Console.WriteLine("Digite o valor de X:["+ i +"] "); //" + i +" concatenação para exibir a posição atual do vetor
+            x[i] = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o valor de Y:["+ i +"] ");
+            y[i] = int.Parse(Console.ReadLine());
+        }
+    } //Fim procedimento
+
+    //Função para receber o valor intercalado de X e Y
+    public static int[] ValorIntercalado(int[] x, int[] y) 
+    {
+        //Criando a variável vetorIntecalado para receber a soma das funções de X e Y
+        int[] vetorIntercalado = new int[x.Length + y.Length];
+        int pos = 0; //Variável para controlar a posição atual dos elementos do vetor intercalado
+
+        //Laço de repetição para pecorrer os elementos de x e y
+        for(int i = 0; i < x.Length; i++)
+        {
+            vetorIntercalado[pos] = x[i];
+            pos++; //Armazenar o valor de X e intercalar com o vetor de y
+            vetorIntercalado[pos] = y[i];
+            pos++;
+        }
+
+        return vetorIntercalado;
+
+    } //Fim da função
+
+    //Procedimento para Exibir os valores 
+    public static void ExibirValor(int[] vetor, int vetorNum ) 
+    {
+        //Condição para as indicações no Main 
+        if (vetorNum == 1)
+            Console.WriteLine("Vetor X: ");
+        else if (vetorNum == 2)
+            Console.WriteLine("Vetor Y: ");
+        else if(vetorNum == 3)
+            Console.WriteLine("Vetor Intercalado: ");
+
+        //Laço de repetição para pecorrer o vetor e imprimir o valor
+        for (int i = 0; i < vetor.Length; i++) 
+        {
+            Console.Write(vetor[i] + " ");
+        }
+        Console.WriteLine();
+    } //Fim procedimento 
+}

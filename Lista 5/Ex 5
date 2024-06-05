@@ -1,0 +1,66 @@
+using System;
+/*Faça uma função que sorteie 3 números (entre 10 e 50) e retorne em um vetor. Depois crie 
+um procedimento que leia as tentativas do usuário para acertar um destes números. O 
+programa só deve parar quando o usuário acertar um número sorteado. */
+class Program 
+{
+    public static void Main(string[] args)
+    {
+        //Variavel que recebe a função de números aleatorios 
+        int[] numSorteados = Sorteio();
+
+        //Pede o usuario para ele adivinhar o número
+        Console.WriteLine("Tente adivinhar um número entre 10 e 50 ");
+
+        //Chamando o procedimento que informa os números sorteados e se caso ele tenha acertado ou não
+        Tentativas(numSorteados);
+
+        Console.ReadLine();
+    }
+
+    //Criando função para sortear os 3 números de 10 a 50
+    public static int [] Sorteio() 
+    {
+        Random r = new Random(); //Gerar os números
+        int[] num = new int[3]; //Vetor para armazenar os 3 números sorteados
+
+        //Laço de repetição para armazenar no vetor os 3 números randomicos 
+        for(int i = 0; i< num.Length; i++) 
+        {
+            num[i] = r.Next(10, 51);
+        }
+        return num;
+    } //Fim função
+
+    public static void Tentativas(int[] num)
+    {
+        int acertou = 0; //Variavel para controlar o laço
+        int cont = 0; //Variavel opcional para mostrar a quantidade de tentativas
+
+        //Laço de repetição para solicitar tentativas ate o usuario acertar o número sorteado
+        while (acertou == 0) 
+        {
+            Console.WriteLine("Digite um número: ");
+            int tentativa = int.Parse(Console.ReadLine());
+
+            cont++; //Contador para armazenar a quantidade de tentativas para acertar o número
+
+            //Laço de repetição para verficiar se é um dos números sorteados
+            for(int i = 0; i < num.Length;i++) 
+            {
+                if (num[i] == tentativa) 
+                { 
+                   Console.WriteLine("\nParabéns! Você acertou um número!\n");
+                   acertou = 1; //Incrementa a variável de controle para sair do laço
+                   Console.WriteLine("Foram " + cont + " tentativas para acertar"); //Mensagem de quantas tentativas foram necessarias 
+                }
+            }
+        //Condição para se caso tenha errado apareça a mensagem de digitar novamente
+        if (acertou == 0)
+            Console.WriteLine("\nVocê errou, tente novamente. ");
+
+        } //Fim while
+        
+
+    } //Fim procedimento
+}

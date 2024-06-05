@@ -1,0 +1,51 @@
+using System;
+/*Em uma cidade, sabe-se hipoteticamente que, em outubro de 2022, não ocorreu temperatura 
+inferior a 15°C, nem superior a 40°C. Faça um programa que armazene as temperaturas de 
+cada dia de outubro em um vetor (de 31 posições), calcule e imprima:
+• A menor e a maior temperatura ocorrida;
+• A temperatura média;
+• O número de dias nos quais a temperatura foi inferior a temperatura média. */
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Declarando as variaveis
+        int[] dias = new int[31];
+        int menor = 41, maior = 14, soma = 0; //Sabemos que a menor temp foi 15 e a maior 40, iniciamos as variaveis com maior/menor valor possível
+        Random temp = new Random(); //Variavel temp para gerar as temperaturas de 15 a 40 no vetor
+
+        //Laço de repetição para armazenar no vetor as temperaturas randomicas e armazenar nas variaveis as maiores/menores temperaturas, também somar elas no final
+        for(int i = 0; i < dias.Length; i++)
+        {
+            dias[i] = temp.Next(15, 41); //Gerar números aleatorios entre 15 até 40
+            if (dias[i] < menor)
+            {
+                menor = dias[i]; //Caso a temperatura for menor, armazena na variavel
+            }
+            else if (dias[i] > maior) 
+            {
+                maior = dias[i]; //Caso a temperatura for mmaior, armazena na variavel
+            }
+            soma += dias[i]; //Variavel para somar as temperaturas 
+        }
+
+        //Declarando a variavel media onde ela recebe a soma dividido pelos dias
+        double media = soma / (double)dias.Length;
+
+        //Variavel para armazenar os dias em que a temperatura ficou abaixo da média
+        int AbaixoMedia = 0;
+
+        //Laço de repetição para verificar os dias em que a temperatura ficou abaixo da média
+        for(int i = 0; i < dias.Length;i++)
+        {
+            if (dias[i] < media)
+                AbaixoMedia++;
+        }
+
+        //Saída de dados
+        Console.WriteLine("A maior temperatura foi: " + maior + "°C");
+        Console.WriteLine("A menor temperatura foi: " + menor + "°C");
+        Console.WriteLine("A media das temperaturas foi de: {0:F2}°C", media);
+        Console.WriteLine("Dias que a temperatura ficou abaixo da média: " + AbaixoMedia + "°C");
+    }
+}

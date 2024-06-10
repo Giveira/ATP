@@ -1,0 +1,111 @@
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Declarando a variável M para armazenar uma matriz 5 por 5
+        int[,] M = new int[5, 5];
+        //Chamando o procedimento que preenche a matriz com números aleatorios 
+        PreencherMatriz(M);
+
+        Console.WriteLine("Matriz Preenchida: "); //Imprimindo a Matriz preenchida
+        MatrizPreenchida(M); //Procedimento para mostrar a matriz preenchida
+
+        //Saída de dados
+        Console.WriteLine("Soma da linha 4: " + LinhaQuatro(M));
+        Console.WriteLine("Soma da coluna 2: " + ColunaDois(M));
+        Console.WriteLine("Soma da diagonal principal: " + DiagonalPrincipal(M));
+        Console.WriteLine("Soma da diagonal Secundária: " + DiagonalSecundaria(M));
+        Console.WriteLine("Soma de todos os elementos da matriz: " + TodosElementos(M));
+    }
+
+    //Procedimento que preenche uma matriz 5,5 com números aleatorios de 1 a 9
+    public static void PreencherMatriz(int[,] M) 
+    {
+        //Criando a variável para gerar os números aleatorios 
+        Random mat = new Random();
+
+        //Laço de repetição para preencher a matriz com números aleatorios 
+        for (int i = 0; i < M.GetLength(0); i++) 
+        {
+            for (int j = 0; j < M.GetLength(1); j++) 
+                M[i, j] = mat.Next(1, 10); //A Matriz vai ser preenchida com números aleatorios
+        }
+    } //Fim procedimento
+
+    //Procedimento para imprmir a matriz preenchida
+    public static void MatrizPreenchida(int[,] M) 
+    {
+        for (int i = 0; i < M.GetLength(0); i++) 
+        {
+            for (int j = 0; j < M.GetLength(1); j++) 
+            {
+                Console.Write(M[i, j] + "\t"); //Imprimindo a matriz
+            }
+            Console.WriteLine();
+        }
+    } //Fim procedimento
+
+    //Função para somar a linha 4 da matriz
+    public static int LinhaQuatro(int [,] M)
+    {
+        //Variável para armazenar a soma
+        int soma = 0;
+
+        for(int i = 0; i < 5; i++)   
+            soma += M[3,i]; //Como queremos a linha 4, colocamos 3 já que o vetor ler a posição 0, 1, 2, 3
+
+        return soma;
+    } //Fim função
+
+    //Função para somar a coluna 2 da matriz
+    public static int ColunaDois(int [,] M) 
+    {
+        //Variável para armazenar a soma
+        int soma = 0;
+
+        for (int i = 0; i < M.GetLength(0); i++) 
+            soma += M[i, 1]; //Como queremos a coluna 2, colocamos o valor de 1, já que o vetor vai ler as posições 0, 1
+     
+        return soma;
+    } //Fim função
+
+    //Função para somar a Diagonal Principal 
+    public static int DiagonalPrincipal(int[,] M) 
+    {
+        //Variável para armazenar a soma
+        int soma = 0;
+
+        for (int i = 0; i < M.GetLength(0); i++) 
+            soma += M[i, i];
+    
+        return soma; 
+    } //Fim função 
+
+    public static int DiagonalSecundaria(int[,] M) 
+    {
+        //Varia´vel para armazenar a soma
+        int soma = 0;
+
+        for (int i = 0; i < M.GetLength(0); i++) 
+            soma += M[i, M.GetLength(1) - 1 - i]; //Calculo da diagonal secundaria 
+        
+        return soma;
+    } //Fim função
+
+    public static int TodosElementos(int[,] M) 
+    {
+        //Variável para armazenar a soma
+        int soma = 0;
+
+        for (int i = 0; i < M.GetLength(0); i++) 
+        {
+            for (int j = 0; j < M.GetLength(1); j++) 
+            {
+                soma += M[i, j]; //Soma de todos os elementos
+            }
+        }
+        return soma;
+    } //Fim função
+} 

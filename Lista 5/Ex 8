@@ -1,0 +1,35 @@
+using System;
+
+class Program 
+{
+    public static void Main(string[] args) 
+    {
+        //Fiz uma variável que armazena os valores de uma matriz 4,4 preenchida 
+        int[,] matriz = new int[4, 4]
+        {
+            { 10, 21, 3,  4},
+            { 6,  11, 14, 9},
+            { 1,  8,  3,  16},
+            { 7,  5,  2,  12}
+        };
+
+        //Declarei a variável soma para somar os valores abaixo da diagonal principal
+        int soma = 0;
+
+        for (int i = 1; i < matriz.GetLength(0); i++) //Começo o loop com 1 pois os elementos da diagonal principal começam na linha 1
+        {
+            for(int j = 0; j < i; j++)  //Condição de j<i é para certificar que o loop vai pegar as colunas a esquerda da diagonal principal, ou seja, abaixo da diagonal principal
+            { 
+                soma += matriz[i, j];
+            }
+        }
+
+        //Saída de dados
+        Console.WriteLine("A soma dos números abaixo da diagonal principal é de: " + soma);
+        Console.WriteLine("Os elementos da diagonal principal são: ");
+        for (int i = 0; i < matriz.GetLength(0); i++) //Loop para ler os elementos da diagonal principal 
+        {
+            Console.WriteLine(matriz[i, i]);
+        }
+    }
+}

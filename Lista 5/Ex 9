@@ -4,7 +4,7 @@ class Program
 {
     public static void Main(string[] args)
     {
-        //Declarando as matrizes A e B 4x6
+        //Declarando as matrizes A e B com tamanho 4x6
         int[,] MatrizA = new int[4, 6];
         int[,] MatrizB = new int[4, 6];
 

@@ -1,0 +1,91 @@
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Declarando as matrizes A e B 4x6
+        int[,] MatrizA = new int[4, 6];
+        int[,] MatrizB = new int[4, 6];
+
+        //Chamando o procedimento que preenche as 2 matrizes com números aleatorios 
+        PreencherMatrizes(MatrizA, MatrizB);
+
+        Console.WriteLine("Matriz A: ");
+        ImprimirMatriz(MatrizA); //Imprimindo a matriz A
+        Console.WriteLine("Matriz B: ");
+        ImprimirMatriz(MatrizB);//Imprimindo a matriz B
+
+        int[,] MatrizS = SomarMatrizes(MatrizA, MatrizB); //Função para somar a matriz A e B e armazenar em uma nova matriz
+        int[,] MatrizD = SubtrairMatrizes(MatrizA, MatrizB); //Função para subtrair a matriz A e B e armazenar em uma nova matriz
+
+        Console.WriteLine("Matriz S (Soma): ");
+        ImprimirMatriz(MatrizS); //Imprimindo a soma da matriz A e B
+        Console.WriteLine("Matriz D (Diferença): ");
+        ImprimirMatriz(MatrizD); //Imprimindo a subtração da matriz A e B
+
+        Console.ReadKey();
+    }
+
+    //Procedimento para preencher as matrizes com números aleatorios 
+    public static void PreencherMatrizes(int [,] MatrizA, int [,] MatrizB) 
+    {
+        //Variável para gerar os números aleatorios 
+        Random mat = new Random();
+        
+        //Laço de repetição para gerar os números na matriz A e B
+        for(int i = 0; i < MatrizA.GetLength(0); i++) 
+        {
+            for (int j = 0; j < MatrizA.GetLength(1); j++) 
+            {
+                MatrizA[i, j] = mat.Next(1, 10);
+                MatrizB[i,j] = mat.Next(1, 10);
+            }
+        }
+    } //Fim procedimento
+
+    //Procedimento para imprimir os valores
+    public static void ImprimirMatriz(int[,] Matriz) 
+    {
+        for (int i = 0; i < Matriz.GetLength(0); i++) 
+        {
+            for (int j = 0; j < Matriz.GetLength(1); j++) 
+            {
+                Console.Write(Matriz[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    } //Fim procedimento
+
+    //Função para somar a matriz A e B
+    public static int [,] SomarMatrizes(int[,] MatrizA, int[,] MatrizB) 
+    {
+        //Uma nova matriz para armazenar a soma
+        int [,] soma = new int[MatrizA.GetLength(0), MatrizA.GetLength(1)];
+
+        for(int i = 0; i < MatrizA.GetLength(0); i++) //Linhas
+        {
+            for (int j = 0; j < MatrizA.GetLength(1); j++) //Colunas
+            {
+                soma[i,j] = MatrizA[i, j] + MatrizB[i, j]; //Calcula a soma da matriz A e B
+            }
+        }
+        return soma;
+    } //Fim função
+
+    //Função para subtrair a matriz A e B
+    public static int[,] SubtrairMatrizes(int[,] MatrizA, int[,] MatrizB) 
+    {
+        //Nova matriz para armazenar a subtração
+        int[,] Subtrair = new int[MatrizA.GetLength(0), MatrizA.GetLength (1)];
+
+        for(int i = 0; i < MatrizA.GetLength(0); i++) 
+        {
+            for (int j = 0; j < MatrizA.GetLength(1); j++) 
+            {
+                Subtrair[i,j] = MatrizA[i,j] - MatrizB[i,j]; //Subtrai a matriz A pela B
+            }
+        }
+        return Subtrair;
+    } //Fim função
+}

@@ -1,10 +1,5 @@
 using System;
-/*Em uma cidade, sabe-se hipoteticamente que, em outubro de 2022, não ocorreu temperatura 
-inferior a 15°C, nem superior a 40°C. Faça um programa que armazene as temperaturas de 
-cada dia de outubro em um vetor (de 31 posições), calcule e imprima:
-• A menor e a maior temperatura ocorrida;
-• A temperatura média;
-• O número de dias nos quais a temperatura foi inferior a temperatura média. */
+
 class Program
 {
     public static void Main(string[] args)

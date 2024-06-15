@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         //Cria um vetor de inteiros chamado vetorX com 10 elementos
         int[] vetorX = new int[10];
@@ -16,7 +16,7 @@ class Program
     } //Fim main
 
     //Procedimento para preencher o vetor com valores digitados pelo usuário
-    static void PreencherVetor(int[] vetor)
+    public static void PreencherVetor(int[] vetor)
     {
         for (int i = 0; i < vetor.Length; i++)
         {
@@ -26,7 +26,7 @@ class Program
     } //Fim procedimento
 
     //Função que cria um novo vetor contendo apenas os valores negativos do vetor passado como argumento
-    static int[] CopiarNegativos(int[] vetor)
+    public static int[] CopiarNegativos(int[] vetor)
     {
         int contNegativos = 0; //Variavel para armazenar os números negativos
         for (int i = 0; i < vetor.Length; i++)
@@ -53,7 +53,7 @@ class Program
     } //Fim função
 
     //Procedimento que exibe os valores do vetor passado como argumento
-    static void ExibirVetor(int[] vetor)
+    public static void ExibirVetor(int[] vetor)
     {
         //Fiz uma condição para se caso o vetor tenha números que não sejam negativos, apareça a mensagem indicando que não há números negativos
         if (vetor.Length == 0)

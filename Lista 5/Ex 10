@@ -1,0 +1,114 @@
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Declarando a matriz 10 por 10
+        int[,] matriz = new int[10, 10];
+
+        //Chamando o procedimento em que preenche a matriz com números aleatorios 
+        PreencherMatriz(matriz);
+
+        //Imprimindo a matriz original
+        Console.WriteLine("Matriz Original");
+        ImprimirMatriz(matriz); //Procedimento que imprime a matriz
+
+        //Chamando o procedimento em que muda as linhas 2 e 8 
+        TrocarLinhas(matriz, 1, 7); // '1' e '7' a posição do vetor
+        Console.WriteLine("\nTrocando a linha 2 com a linha 8, a matriz ficou assim: ");
+        ImprimirMatriz(matriz); //Imprimindo a matriz com as alterações feitas
+
+        //Chamando o procedimento para trocar as colunas 4 e 9
+        TrocarColunas(matriz, 3, 9);
+        Console.WriteLine("\nTrocando a coluna 4 com a 9, a matriz fica assim: ");
+        ImprimirMatriz(matriz); //Imprimindo a matriz com as alterações feitas
+
+        //Chamando o procedimento em que altera a diagonal principal com a secundária
+        TrocarDiagonal(matriz);
+        Console.WriteLine("\nTrocando a diagonal principal com a secundária, a matriz fica assim: ");
+        ImprimirMatriz(matriz); //Imprimindo a matriz com as alterações feitas
+
+        //Chamando o procedimento que troca a linha 5 com a coluna 10
+        TrocarLinhaComColuna(matriz, 4, 9);
+        Console.WriteLine("\nTrocando a linha 5 com a coluna 10, a matriz fica assim: ");
+        ImprimirMatriz(matriz); //Imprimindo a matriz com as alterações feitas
+
+        Console.ReadKey();
+    }
+
+    //Procedimento para preencher uma matriz 10x10 com números aleatorios de 1 a 9
+    public static void PreencherMatriz(int[,] matriz) 
+    {
+        Random mat = new Random();
+        for(int i = 0; i < matriz.GetLength(0); i++) 
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++) 
+            {
+                matriz[i, j] = mat.Next(1, 10); //Armazenando os valores aleatorios na matriz
+            }
+        }
+    }
+
+    //Procedimento para imprimir a matriz 
+    public static void ImprimirMatriz(int[,] matriz)
+    {
+        for (int i = 0; i < matriz.GetLength(0); i++) 
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++) 
+            {
+                Console.Write(matriz[i, j] + " "); //Imprimindo a matriz preenchida    
+            }
+            Console.WriteLine();
+        }
+    }
+
+    //Procedimento para trocar as linhas 
+    public static void TrocarLinhas(int[,] matriz, int linha1, int linha2) 
+    {
+        int cont = 0; //Contador para o controle
+
+        for (int j = 0; j< matriz.GetLength(0); j++) 
+        {
+                cont = matriz[linha1, j]; 
+                matriz[linha1, j] = matriz[linha2, j]; //linha1 recebe linha 2
+                matriz[linha2, j] = cont;          
+        }
+    }
+
+    //Procedimento onde é feito a troca das colunas
+    public static void TrocarColunas(int[,] matriz, int coluna1, int coluna2) 
+    {
+        int cont = 0;
+        for (int i = 0; i < matriz.GetLength(0); i++) 
+        {           
+                cont = matriz[i, coluna1];
+                matriz[i, coluna1] = matriz[i, coluna2]; //coluna1 recebe coluna 2
+                matriz[i, coluna2] = cont;          
+        }
+    }
+
+    public static void TrocarDiagonal(int[,] matriz) 
+    {
+        int cont = 0; //Contador para o controle
+
+        for (int i = 0; i < matriz.GetLength(0); i++) 
+        {
+            cont = matriz[i, i]; //diagonal primária
+            matriz[i, i] = matriz[i, matriz.GetLength(0) - i - 1]; //Diagonal primária recebe a secundária 
+            matriz[i, matriz.GetLength(0) - i - 1] = cont;
+        }
+    }
+
+    //Procedimento para trocar a linha com a coluna
+    public static void TrocarLinhaComColuna(int[,] matriz, int linha, int coluna) 
+    {
+        int cont = 0; //Contador para o controle
+        for (int i = 0; i < matriz.GetLength(0); i++) 
+        {         
+                cont = matriz[linha, i];
+                matriz[linha, i] = matriz[i, coluna]; //linha recebe coluna
+                matriz[i, coluna] = cont;           
+        } 
+    }
+}

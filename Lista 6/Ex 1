@@ -1,0 +1,22 @@
+using System;
+
+class Program 
+{
+    public static void Main(string[] args) 
+    {
+        //Criando variável para fazer a contagem dos espaços em branco
+        int contEspaco = 0;
+
+        Console.WriteLine("Digite uma frase: ");
+        string frase = Console.ReadLine(); //Lendo a frase digitada pelo usuário 
+
+        foreach(char C in frase)
+        {  
+            if(C == ' ') //Caso C for igual ao espaço vazio entra na contagem
+            contEspaco++;
+        }
+        //Imprime o resultado
+        Console.WriteLine("Espaços em branco: " +  contEspaco);
+    }
+}
+

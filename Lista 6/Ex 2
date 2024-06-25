@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Pedindo ao usuário digitar uma frase
+        Console.WriteLine("Digite uma frase: ");
+        string frase = Console.ReadLine(); //Lendo a frase
+
+        string fraseSemVogais = ""; //Variável para armazenar a frase sem as vogais
+
+        foreach (char vogais in frase) //Pecorrear a string
+        {
+            //Condição feita para letras minusculas e maiusculas 
+            if (vogais != 'a' && vogais != 'e' && vogais != 'i' && vogais != 'o' && vogais != 'u'
+                && vogais != 'A' && vogais != 'E' && vogais != 'I' && vogais != 'O' && vogais != 'U' ) 
+            
+                fraseSemVogais += vogais; //Frase sem vogais recebe as vogais 
+            
+        }
+
+        //Saída de dados
+        Console.WriteLine("Frase sem vogais: " +  fraseSemVogais);
+    }
+}

@@ -1,0 +1,45 @@
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Entrada de dados
+        Console.WriteLine("Digite uma frase: ");
+        string frase = Console.ReadLine(); //Lendo a frase digitada pelo usuário
+
+        string fraseCodificada = CodificarFrase(frase, 3); //Chamando a função e armazenando em uma variável 
+
+        //Saída de dados
+        Console.WriteLine("Nova string codificada: " + fraseCodificada);
+    }
+
+    //Criando a função
+    public static string CodificarFrase(string frase, int trocarPosicoes)
+    {
+        string novaFrase = "";
+
+        //Loop para pecorrer a string
+        foreach (char c in frase)
+        {
+            //Verifica se o caractere atual é uma letra
+            if (Char.IsLetter(c)) 
+            { 
+                char letraCodificada = (char)(c + trocarPosicoes);
+
+                //Verifica se o caractere ultrapassa Z 
+                if (char.IsUpper(c) && letraCodificada > 'Z')
+                    letraCodificada = (char)(letraCodificada - 26); //Volta para o início do alfabeto, 26 representa as 26 letras do alfabeto 
+
+                else if (char.IsLower(c) && letraCodificada > 'z')
+                    letraCodificada = (char)(letraCodificada - 26);
+
+                novaFrase += letraCodificada; //Adiciona o caractere codificado a nova frase
+            }
+            //Se não for uma letra, adiciona o caractere original a nova frase
+            else 
+                novaFrase += c;
+        }
+        return novaFrase; //Retorna a nova frase
+    }
+}

@@ -1,0 +1,84 @@
+using System;
+using System.IO;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Solicita ao usuário a quantidade de veículos da locadora
+        Console.WriteLine("Digite a quantidade de veículos da locadora: ");
+        int quantidadeVeiculos = int.Parse(Console.ReadLine());
+
+        //Solicita ao usuário o valor do aluguel por veículo
+        Console.WriteLine("Digite o valor do aluguel por veículo: ");
+        double valorAluguel = double.Parse(Console.ReadLine());
+
+        //Calcula o faturamento anual
+        double faturamentoAnual = CalcularFaturamentoAnual(quantidadeVeiculos, valorAluguel);
+        //Calcula o valor ganho com multas mensais
+        double valorMultasMensal = CalcularValorMultasMensal(quantidadeVeiculos, valorAluguel);
+        //Calcula o valor gasto com manutenção anual
+        double valorManutencaoAnual = CalcularValorManutencaoAnual(quantidadeVeiculos);
+
+        //Saída de dados
+        Console.WriteLine("Faturamento anual: R$" + faturamentoAnual.ToString("F2"));
+        Console.WriteLine("Valor ganho com multas no mês: R$" + valorMultasMensal.ToString("F2"));
+        Console.WriteLine("Valor gasto com manutenção anual: R$" + valorManutencaoAnual.ToString("F2"));
+
+        //Define o caminho do arquivo de saída
+        string caminhoArquivo = "resultado.txt";
+        //Grava os resultados no arquivo
+        GravarResultadoArquivo(faturamentoAnual, valorMultasMensal, valorManutencaoAnual, caminhoArquivo);
+
+        //Informa ao usuário que os resultados foram salvos no arquivo
+        Console.WriteLine("Os resultados foram salvos no arquivo 'resultado.txt'.");
+    }
+
+    //Função para calcular o faturamento anual
+    public static double CalcularFaturamentoAnual(int quantidadeVeiculos, double valorAluguel)
+    {
+        //Calcula a quantidade de veículos alugados por mês 
+        int quantidadeAlugadosPorMes = quantidadeVeiculos / 3;
+
+        double faturamentoMensal = quantidadeAlugadosPorMes * valorAluguel;
+
+        double faturamentoAnual = faturamentoMensal * 12;
+
+        return faturamentoAnual;
+    }
+
+    //Função para calcular o valor ganho com multas mensais
+    public static double CalcularValorMultasMensal(int quantidadeVeiculos, double valorAluguel)
+    {
+        //Calcula a quantidade de veículos com atraso (um décimo dos alugados)
+        int quantidadeAtrasos = quantidadeVeiculos / 10;
+        //Calcula o valor ganho com multas mensais (20% do valor do aluguel por atraso)
+        double valorMultasMensal = quantidadeAtrasos * (valorAluguel * 0.2);
+
+        return valorMultasMensal;
+    }
+
+    //Função para calcular o valor gasto com manutenção anual
+    public static double CalcularValorManutencaoAnual(int quantidadeVeiculos)
+    {
+        //Calcula a quantidade de veículos que precisam de manutenção 2% do total
+        double quantidadeManutencao = Math.Ceiling(quantidadeVeiculos * 0.02);
+        //Calcula o valor gasto com manutenção anual (R$ 600,00 por veículo)
+        double valorManutencaoAnual = quantidadeManutencao * 600;
+
+        return valorManutencaoAnual;
+    }
+
+    //Procedimento para gravar os resultados no arquivo
+    public static void GravarResultadoArquivo(double faturamentoAnual, double valorMultaMensal, double valorManutencaoAnual, string caminhoArquivo)
+    {
+        //Abre um StreamWriter para escrever no arquivo
+        using (StreamWriter sw = new StreamWriter(caminhoArquivo))
+        {
+            //Escreve cada resultado em uma linha do arquivo
+            sw.WriteLine("Faturamento anual: R$" + faturamentoAnual.ToString("F2"));
+            sw.WriteLine("Valor ganho com multas no mês: R$" + valorMultaMensal.ToString("F2"));
+            sw.WriteLine("Valor gasto com manutenção anual: R$" + valorManutencaoAnual.ToString("F2"));
+        }
+    }
+}

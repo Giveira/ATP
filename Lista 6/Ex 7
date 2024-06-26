@@ -1,0 +1,80 @@
+using System;
+using System.IO;
+
+class Program
+{
+    public static void Main()
+    {
+        //Solicita ao usuário a quantidade de letras a serem inseridas
+        Console.Write("Digite a quantidade de letras a serem inseridas: ");
+        int quantidadeLetras = int.Parse(Console.ReadLine());
+
+        //Chama o método para inserir letras no arquivo
+        InserirLetrasArquivo(quantidadeLetras);
+
+        //Chama o método para contar vogais no arquivo e armazena o resultado
+        int quantidadeVogais = ContarVogaisArquivo();
+
+        //Exibe a quantidade de vogais encontradas no arquivo
+        Console.WriteLine("Quantidade de vogais: " + quantidadeVogais);
+    }
+
+    //Procedimento para inserir letras em um arquivo
+    public static void InserirLetrasArquivo(int quantidadeLetras)
+    {
+        Console.WriteLine("Digite as letras a serem inseridas:");
+
+        //Abre um StreamWriter para escrever no arquivo "letras.txt"
+        using (StreamWriter escritor = new StreamWriter("letras.txt"))
+        {
+            
+            for (int i = 0; i < quantidadeLetras; i++)
+            {
+                //Lê uma letra digitada pelo usuário
+                char letra = Console.ReadKey().KeyChar;
+                //Escreve a letra no arquivo
+                escritor.Write(letra);
+            }
+        }
+
+        //Informa ao usuário que as letras foram inseridas no arquivo
+        Console.WriteLine();
+        Console.WriteLine("Letras inseridas no arquivo.");
+    }
+
+    //Função para contar vogais em um arquivo
+    public static int ContarVogaisArquivo()
+    {
+        
+        int quantidadeVogais = 0;
+
+        // Abre um StreamReader para ler o conteúdo do arquivo "letras.txt"
+        using (StreamReader leitor = new StreamReader("letras.txt"))
+        {
+            //Lê todo o conteúdo do arquivo
+            string conteudo = leitor.ReadToEnd();
+
+            //Itera por cada caractere do conteúdo
+            foreach (char letra in conteudo)
+            {
+                
+                if (EhVogal(letra))
+                {
+                    quantidadeVogais++;
+                }
+            }
+        }
+
+        return quantidadeVogais;
+    }
+
+    //Função para verificar se um caractere é uma vogal
+    public static bool EhVogal(char letra)
+    {
+        //Converte a letra para minúscula para facilitar a comparação
+        letra = char.ToLower(letra);
+
+        //Verifica se o caractere é uma vogal 'a', 'e', 'i', 'o', 'u'
+        return (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u');
+    }
+}

@@ -1,1 +1,55 @@
-E
+using System;
+using System.IO;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        //Entrada de dados
+        Console.WriteLine("Digite um número");
+        int numero = int.Parse(Console.ReadLine());
+
+        int somaDivisores = CalcularDivisores(numero);
+
+        Console.WriteLine("Divisores do número " + numero + ":");
+        ImprimirDivisores(numero);
+
+        //Define o caminho do arquivo onde será salva a soma dos divisores
+        string caminhoArquivo = "somaDivisores.txt";
+        SalvarSomaDivisores(somaDivisores, caminhoArquivo);
+
+        //Saída de dados
+        Console.WriteLine("A soma dos divisores foi salva no arquivo 'somaDivisores.txt'.");
+    }
+
+    //Função para calcular a quantidade de divisores do número
+    public static int CalcularDivisores(int numero)
+    {
+        int somaDivisores = 0;
+
+        //Laço de repetição para verificar cada número de 1 até o número informado
+        for(int i = 1; i <= numero; i++) 
+        {
+            if(numero % i == 0)
+                somaDivisores++;
+        }
+
+        return somaDivisores;
+    }
+
+    //Procedimento para imprimir os divisores do número
+    public static void ImprimirDivisores(int numero)
+    {
+        for(int i = 1; i <= numero; i++)
+        {
+            if (numero % i == 0)
+                Console.WriteLine(i);
+        }
+    }
+
+    //Procedimento para salvar a soma dos divisores em um arquivo
+    public static void SalvarSomaDivisores(int somaDivisores, string caminhoArquivo)
+    {
+        using (StreamWriter sw = new StreamWriter(caminhoArquivo))
+            sw.WriteLine("Soma dos divisores: " + somaDivisores);
+    }
+}

@@ -1,0 +1,41 @@
+using System;
+using System.IO;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Digite o caminho do arquivo de texto: ");
+        string caminhoArquivo = Console.ReadLine();
+
+        //Condição para se caso exista o arquivo
+        if (File.Exists(caminhoArquivo))
+        {
+            int contA = ContarCaracteresA(caminhoArquivo);
+            Console.WriteLine("Quantidade de caracteres 'a': " + contA);
+        }
+        else
+        {
+            Console.WriteLine("Arquivo não encontrado!");
+        }
+    }
+
+    //Função para contar os caracteres A
+    public static int ContarCaracteresA(string caminhoArquivo)
+    {
+        int contA = 0;
+
+        //Lê o conteúdo do arquivo para uma string
+        string conteudo = File.ReadAllText(caminhoArquivo);
+
+        //Pecorre através de cada caractere no conteúdo do arquivo
+        foreach (char c in conteudo)
+        {
+            //Condição se é A ou a
+            if (c == 'a' || c == 'A')
+                contA++;
+        }
+
+        return contA; //fim função
+    }
+}

@@ -26,7 +26,7 @@ class Program
             foreach (string linha in linhas)
              Console.WriteLine(linha);
 
-           Console.WriteLine("Quantidade de linhas: " + linhas.Length);
+             Console.WriteLine("Quantidade de linhas: " + linhas.Length);
         }
         else
            Console.WriteLine("Arquivo não encontrado.");        

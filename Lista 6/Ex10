@@ -1,0 +1,61 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Caminho do arquivo que contém os números em ponto flutuante
+        string filePath = "numeros.txt";
+
+        //Verifica se o arquivo existe
+        if (File.Exists(filePath))
+        {
+            //Inicializa variáveis 
+            double valorMaximo = double.MinValue;
+            double valorMinimo = double.MaxValue;
+            double soma = 0;
+            int count = 0;
+
+            //Lê todas as linhas do arquivo
+            string[] linhas = File.ReadAllLines(filePath);
+
+            //Processa cada linha do arquivo
+            foreach (string linha in linhas)
+            {
+                //Converte a linha em um número em ponto flutuante
+                double numero = double.Parse(linha);
+
+                //Atualiza valor máximo e mínimo
+                if (numero > valorMaximo)                
+                    valorMaximo = numero;  
+                
+                if (numero < valorMinimo)               
+                    valorMinimo = numero;               
+
+                //Adiciona o número à soma e incrementa o contador
+                soma += numero;
+                count++;
+            }
+
+            //Verifica se foram lidos números válidos antes de calcular a média
+            if (count > 0)
+            {
+                double media = soma / count;
+
+                //Saída de dados
+                Console.WriteLine("Valor máximo: " + valorMaximo);
+                Console.WriteLine("Valor mínimo: " + valorMinimo);
+                Console.WriteLine("Média: " + media);
+            }
+            else
+            {
+                Console.WriteLine("Nenhum número válido foi encontrado no arquivo.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Arquivo não encontrado!");
+        }
+    }
+}

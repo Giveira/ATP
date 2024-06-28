@@ -1,0 +1,82 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Caminho do arquivo onde os dados dos alunos serão armazenados
+        string filePath = "alunos.txt";
+
+        while (true)
+        {
+            //Exibe o menu de opções
+            Console.WriteLine("Selecione uma opção:");
+            Console.WriteLine("1. Inserir dados de aluno");
+            Console.WriteLine("2. Ler dados de alunos");
+            Console.WriteLine("3. Sair");
+            string option = Console.ReadLine();
+
+            //Condição
+            switch (option)
+            {
+                case "1":
+                    InserirDadosAluno(filePath);
+                    break;
+                case "2":
+                    LerDadosAlunos(filePath);
+                    break;
+                case "3":
+                    return;
+                default:
+                    Console.WriteLine("Opção inválida, tente novamente.");
+                    break;
+            }
+        }
+    }
+
+    static void InserirDadosAluno(string filePath)
+    {
+        //Solicita a matrícula do aluno
+        Console.Write("Digite a matrícula do aluno: ");
+        string matricula = Console.ReadLine();
+
+        //Solicita o telefone do aluno
+        Console.Write("Digite o telefone do aluno: ");
+        string telefone = Console.ReadLine();
+
+        //Abre o arquivo para escrita 
+        using (StreamWriter sw = new StreamWriter(filePath, true))
+        {
+            //Escreve os dados do aluno no arquivo no formato matricula,telefone
+            sw.WriteLine(matricula + "," + telefone);
+        }
+
+        Console.WriteLine("Dados do aluno inseridos com sucesso!\n");
+    }
+
+    static void LerDadosAlunos(string filePath)
+    {
+        //Verifica se o arquivo existe
+        if (File.Exists(filePath))
+        {
+            //Abre o arquivo
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string linha;
+                //Lê cada linha do arquivo
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    //Divide a linha em duas partes: matricula e telefone
+                    string[] dados = linha.Split(',');
+                    //Exibe os dados
+                    Console.WriteLine("Matrícula: " + dados[0] + ", Telefone: " + dados[1]);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Arquivo não encontrado!\n");
+        }
+    }
+}

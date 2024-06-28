@@ -8,7 +8,7 @@ class Program
         Console.Write("Digite o caminho do arquivo de texto: ");
         string caminhoArquivo = Console.ReadLine();
 
-        //Chamando o rocedimento
+        //Chamando o procedimento
         ImprimirConteudoArquivo(caminhoArquivo);
     }
 
